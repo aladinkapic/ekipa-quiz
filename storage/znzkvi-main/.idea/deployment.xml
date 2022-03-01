@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="Znzkvi.helemnejse.ba" uploadOnCheckin="08147390-a283-42d3-9344-a85d9e7ab732" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="Znzkvi.helemnejse.ba">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myUploadOnCheckinName" value="Znzkvi.helemnejse.ba" />
+  </component>
+</project>

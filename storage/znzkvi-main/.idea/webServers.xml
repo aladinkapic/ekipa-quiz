@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="08147390-a283-42d3-9344-a85d9e7ab732" name="Znzkvi.helemnejse.ba" url="https://znzkvi.helemnejse.ba">
+        <fileTransfer rootFolder="/home/forge/znzkvi.helemnejse.ba/public" accessType="SFTP" host="78.47.197.48" port="22" sshConfigId="ce036964-d3cb-479b-a310-b92d592f47a9" sshConfig="HelemNejse" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,98 @@
+.s-top-menu{
+    position: fixed; left: 0px; top:0px; width: 100%; height: 80px;
+
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.04), 0 1px 6px rgba(0, 0, 0, 0.04); background: #fff; z-index: 1000;
+
+    // ** Application name ** //
+    .app-name{
+        position: absolute; left: 0px; top:0px; width: 320px; height: 80px;
+        h1{
+            font-size: 30px; margin-left:20px; color:$bColor; padding-top:24px;
+        }
+        i{
+            position: absolute; right: 20px; font-size: 20px; top: 30px; display: none;
+        }
+        i:hover{ cursor: pointer; color: $bColor;}
+    }
+
+    .top-menu-links{
+        position: absolute; left: $left-menu-w; width: calc(100% - 321px); height: 40px; top:20px; border-left:1px solid #E5E5E5;
+
+        .left-icons{
+            position: absolute; left:30px; top:0px; min-width:200px; height: 100%;
+            .single-li{
+                position: relative; height: 40px; display: inline-flex; margin:0px 10px;
+                p{
+                    margin:0px; padding-top:10px; margin-right:10px; font-size:14px;
+                }
+                i{
+                    padding-top:12px; color:#333; font-size:14px;
+                }
+                .number-of{
+                    position: absolute; right:-6px; top:2px; height: 14px; background: $bColor; border-radius:2px;
+                    p{
+                        font-size:10px; margin:0px; color:#fff; padding-top:0px; padding-left:3px; padding-right:3px;
+                    }
+                }
+            }
+            .single-li:hover{
+                cursor: pointer;
+            }
+        }
+
+        .right-icons{
+            position: absolute; right:30px; top:0px; min-width:200px; height: 100%; display: inline-flex; justify-content: flex-end;
+            .single-li{
+                position: relative; height: 40px; display: inline-flex; margin:0px 10px;
+                p{
+                    margin:0px; padding-top:10px; margin-left:10px; font-size:14px;
+                }
+                i{
+                    padding-top:13px; color:#333; font-size:14px;
+                }
+                .number-of{
+                    position: absolute; right:-6px; top:2px; height: 14px; background: $bColor; border-radius:2px;
+                    p{
+                        font-size:10px; margin:0px; color:#fff; padding-top:0px; padding-left:3px; padding-right:3px;
+                    }
+                }
+
+                // ** Notifications wrapper ** //
+                // @import "menu-includes/notifications";
+
+                // ** Search ** //
+                // @import "menu-includes/search";
+            }
+            .single-li:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1500px) {
+    .s-top-menu{
+        .app-name{
+            i{display: block;}
+        }
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .s-top-menu{
+        .app-name{
+            width: 100%;
+            i{display: block; z-index:100;}
+        }
+        .top-menu-links{
+            border-left: 0px;
+            .left-icons{
+                display: none;
+            }
+            .right-icons{
+                right: 50px;
+                .user-name{display: none;}
+            }
+        }
+    }
+}

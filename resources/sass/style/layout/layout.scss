@@ -1,0 +1,16 @@
+// ** Import menu stylesheet ** //
+$left-menu-w : 320px;
+$left-menu-w-1200 : 80px;
+
+/*
+ *  Menu includes - Left and top menu
+ */
+
+@import "snippets/left-menu";
+@import "snippets/top-menu";
+
+/*
+ *  Content include
+ */
+
+@import "snippets/content";

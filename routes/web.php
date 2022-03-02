@@ -17,6 +17,10 @@ Route::group(['namespace' => 'Quiz', 'prefix' => '/'], function () {
     Route::get('',                     'QuizController@index')->name('quiz.index');
 });
 
+Route::group(['namespace' => 'System', 'prefix' => '/system'], function () {
+    Route::get('',                     'MainController@index')->name('system.index');
+});
+
 //Route::get('/', function () {
 //    return view('welcome');
 //});

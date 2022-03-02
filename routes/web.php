@@ -14,7 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['namespace' => 'Quiz', 'prefix' => '/'], function () {
-    Route::get('',                     'QuizController@index')->name('quiz.index');
+    Route::get('',                         'QuizController@index')->name('quiz.index');
+
+    /*
+     *  Currently active quiz
+     */
+    Route::get('live-quiz/{id}',           'QuizController@live')->name('quiz.live');
 });
 
 Route::group(['namespace' => 'System', 'prefix' => '/system'], function () {
@@ -32,6 +37,14 @@ Route::group(['namespace' => 'System', 'prefix' => '/system'], function () {
             Route::get ('/new-question{set_id}',                    'SetsController@newQuestion')->name('system.quiz.sets.new-question');
             Route::post('/save-question',                           'SetsController@saveQuestion')->name('system.quiz.sets.save-question');
             Route::get ('/delete-question{id}',                     'SetsController@deleteQuestion')->name('system.quiz.sets.delete-question');
+
+            Route::group(['prefix' => '/players'], function () {
+                Route::get ('/create{set_id}',                      'PlayersController@create')->name('system.quiz.sets.players.create');
+                Route::post('/save',                                'PlayersController@save')->name('system.quiz.sets.players.save');
+
+                Route::get ('/edit{id}',                            'PlayersController@edit')->name('system.quiz.sets.players.edit');
+                Route::put ('/update',                              'PlayersController@update')->name('system.quiz.sets.players.update');
+            });
         });
     });
 });

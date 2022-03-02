@@ -44,9 +44,7 @@ class SetsController extends Controller{
                 ]);
             }
             return $this::success(route('system.quiz.sets.preview', ['id' => $request->set_id]));
-        } catch (\Exception $e) {
-            return $this::error($e->getCode(), $e->getMessage());
-        }
+        } catch (\Exception $e) { return $this::error($e->getCode(), $e->getMessage()); }
     }
     public function deleteQuestion ($id){
         try{

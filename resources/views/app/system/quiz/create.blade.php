@@ -54,14 +54,23 @@
                     @foreach($quiz->setRel as $set)
                         <div class="card-body">
                             <h5 class="card-title">
-                                @if($set->player == null)
+                                @if($set->player_id == null)
                                     {{ __('Nema igrača') }}
                                 @else
-
+                                    <a href="{{ route('system.quiz.sets.players.edit', ['id' => $set->playerRel->id ?? 0]) }}">
+                                        {{ $set->playerRel->name ?? '' }}
+                                    </a>
                                 @endif
                             </h5>
                             <p class="card-text"> {{ __('U setu se nalazi ukupno ' . ( $set->questionRel->count() ) . ' pitanja!') }} </p>
-                            <a href=" {{ route('system.quiz.sets.preview', ['id' => $set->id ]) }} " class="btn btn-secondary btn-sm"> {{ __('Više informacija') }} </a>
+                            <a href=" {{ route('system.quiz.sets.preview', ['id' => $set->id ]) }} " class="btn btn-secondary btn-sm">
+                                <small>{{ __('Više informacija') }}</small>
+                            </a>
+                            @if($set->player_id == null)
+                                <a href=" {{ route('system.quiz.sets.players.create', ['set_id' => $set->id ]) }} " class="btn btn-success btn-sm">
+                                    <small>{{ __('Dodaj igrača') }} <i class="fas fa-user-plus"></i></small>
+                                </a>
+                            @endif
                         </div>
                         <hr>
                     @endforeach

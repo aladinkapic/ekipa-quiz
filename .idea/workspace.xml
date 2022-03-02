@@ -2,7 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e109f634-511a-495c-9d62-5bf0e8a883a7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/ekipa-quiz.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ekipa-quiz.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Quiz/QuizController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Quiz/QuizController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Quiz/Quiz.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Quiz/Quiz.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/quiz/2022_03_02_100945___quiz__sets.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/quiz/2022_03_02_100945___quiz__sets.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/quiz/2022_03_02_101057___quiz__sets_questions.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/quiz/2022_03_02_101057___quiz__sets_questions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/quiz/2022_03_02_102055___quiz__sets_questions__answers.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/quiz/2022_03_02_102055___quiz__sets_questions__answers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/template/layout/snippets/menu/includes/left-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/template/layout/snippets/menu/includes/left-menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,6 +140,7 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
     </include_path>
   </component>
   <component name="ProjectId" id="25nXLYuMIstWoND5w07VOzkAsLT" />
@@ -157,7 +173,7 @@
       <option name="presentableId" value="Default" />
       <updated>1646163768781</updated>
       <workItem from="1646163770312" duration="1547000" />
-      <workItem from="1646213816661" duration="2814000" />
+      <workItem from="1646213816661" duration="12362000" />
     </task>
     <servers />
   </component>
@@ -165,14 +181,22 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1646217204532">
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1646224482081">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1646217204532" />
-    <state x="635" y="351" key="NewPhpFileDialog" timestamp="1646215041504">
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1646224482081" />
+    <state x="635" y="351" key="NewPhpFileDialog" timestamp="1646230072858">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="635" y="351" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1646215041504" />
+    <state x="635" y="351" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1646230072858" />
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1646164419572" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1646225167353">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1646225167353" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1646231056753">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1646231056753" />
   </component>
 </project>

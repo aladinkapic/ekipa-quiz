@@ -35,3 +35,8 @@ require('./layout/snippets/classes');
 require('./layout/snippets/filters');
 
 require('./layout/menu/menu');
+
+/*
+ *  Questions
+ */
+require('./app/quiz/questions');

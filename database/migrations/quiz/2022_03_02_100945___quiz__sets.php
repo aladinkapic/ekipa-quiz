@@ -16,7 +16,7 @@ class QuizSets extends Migration
         Schema::create('quiz__sets', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('quiz_id');
+            $table->unsignedBigInteger('quiz_id');
             $table->foreign('quiz_id')
                 ->references('id')
                 ->on('quiz')

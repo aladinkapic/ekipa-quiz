@@ -37305,6 +37305,35 @@ __webpack_require__(/*! ./layout/snippets/classes */ "./resources/js/layout/snip
 __webpack_require__(/*! ./layout/snippets/filters */ "./resources/js/layout/snippets/filters.js");
 
 __webpack_require__(/*! ./layout/menu/menu */ "./resources/js/layout/menu/menu.js");
+/*
+ *  Questions
+ */
+
+
+__webpack_require__(/*! ./app/quiz/questions */ "./resources/js/app/quiz/questions.js");
+
+/***/ }),
+
+/***/ "./resources/js/app/quiz/questions.js":
+/*!********************************************!*\
+  !*** ./resources/js/app/quiz/questions.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  var questionCounter = 1;
+  $("body").on('click', '.add-question', function () {
+    var question = $('#question-zero').clone().prop("id", "question-" + questionCounter++);
+    question.find('input[name="answer[]"]').val('');
+    question.find('select[name="correct[]"]').val('0');
+    question.find('input[name="delete[]"]').addClass('c-p');
+    question.appendTo(".questions");
+  });
+  $("body").on('click', '.c-p', function () {
+    $(this).parent().parent().remove();
+  });
+});
 
 /***/ }),
 

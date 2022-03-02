@@ -5,8 +5,8 @@
             <img class="mp-profile-image" title="{{__('Promijenite sliku profila')}}" src="{{ asset('images/user.png') }} " alt="">
         </div>
         <div class="user-desc">
-            <h4> Root Admin </h4>
-            <p> Living address, Town - Country</p>
+            <h4> Čika Boča </h4>
+            <p> La ga no (a firma d.o.o)</p>
             <p>
                 <i class="fas fa-circle"></i>
                 Online
@@ -50,21 +50,21 @@
             <div class="s-lm-wrapper">
                 <div class="s-lm-s-elements">
                     <div class="s-lms-e-img">
-                        <i class="far fa-user"></i>
+                        <i class="fas fa-feather"></i>
                     </div>
-                    <p>{{__('Korisnici')}}</p>
+                    <p>{{__('Kviz')}}</p>
                     <div class="extra-elements">
                         <div class="rotate-element"><i class="fas fa-angle-right"></i></div>
                     </div>
                 </div>
                 <div class="inside-links active-links">
-                    <a href="#">
+                    <a href="{{ route('system.quiz.index') }}">
                         <div class="inside-lm-link">
                             <div class="ilm-l"></div><div class="ilm-c"></div>
-                            <p>{{__('Pregled svih korisnika')}}</p>
+                            <p>{{__('Pregled svih')}}</p>
                         </div>
                     </a>
-                    <a href="#">
+                    <a href="{{ route('system.quiz.create') }}">
                         <div class="inside-lm-link">
                             <div class="ilm-l"></div><div class="ilm-c"></div>
                             <p> {{__('Unos novog')}} </p>

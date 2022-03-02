@@ -18,7 +18,22 @@ Route::group(['namespace' => 'Quiz', 'prefix' => '/'], function () {
 });
 
 Route::group(['namespace' => 'System', 'prefix' => '/system'], function () {
-    Route::get('',                     'MainController@index')->name('system.index');
+    Route::get('',                          'MainController@index')->name('system.index');
+
+    Route::group(['namespace' => 'Quiz', 'prefix' => '/quiz'], function () {
+        Route::get ('/',                         'QuizController@index')->name('system.quiz.index');
+        Route::get ('/create',                   'QuizController@create')->name('system.quiz.create');
+        Route::post('/save',                     'QuizController@save')->name('system.quiz.save');
+        Route::get ('/preview/{id}',             'QuizController@preview')->name('system.quiz.preview');
+
+        Route::group(['prefix' => '/sets'], function () {
+            Route::get ('/create{quiz_id}',                         'SetsController@create')->name('system.quiz.sets.create');
+            Route::get ('/preview{id}',                             'SetsController@preview')->name('system.quiz.sets.preview');
+            Route::get ('/new-question{set_id}',                    'SetsController@newQuestion')->name('system.quiz.sets.new-question');
+            Route::post('/save-question',                           'SetsController@saveQuestion')->name('system.quiz.sets.save-question');
+            Route::get ('/delete-question{id}',                     'SetsController@deleteQuestion')->name('system.quiz.sets.delete-question');
+        });
+    });
 });
 
 //Route::get('/', function () {

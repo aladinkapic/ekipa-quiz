@@ -16,12 +16,13 @@ class QuizSetsQuestionsAnswers extends Migration
         Schema::create('quiz__sets_questions_answers', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('question_id');
+            $table->unsignedBigInteger('question_id');
             $table->foreign('question_id')
                 ->references('id')
                 ->on('quiz__sets_questions')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            $table->string('answer', 300);
             $table->integer('correct')->default(0);
 
             $table->timestamps();

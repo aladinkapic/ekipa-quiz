@@ -16,7 +16,7 @@ class QuizSetsQuestions extends Migration
         Schema::create('quiz__sets_questions', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('set_id');
+            $table->unsignedBigInteger('set_id');
             $table->foreign('set_id')
                 ->references('id')
                 ->on('quiz__sets')
@@ -24,6 +24,7 @@ class QuizSetsQuestions extends Migration
                 ->onDelete('cascade');
             $table->string('question', 300);
             $table->string('answer')->nullable();
+            $table->integer('correct')->default(0);
 
             $table->timestamps();
             $table->softDeletes();

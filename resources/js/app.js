@@ -40,3 +40,4 @@ require('./layout/menu/menu');
  *  Questions
  */
 require('./app/quiz/questions');
+require('./app/quiz/quiz');

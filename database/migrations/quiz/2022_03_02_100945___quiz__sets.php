@@ -23,6 +23,8 @@ class QuizSets extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->integer('player_id')->nullable();
+            $table->integer('finished')->default(0);
+            $table->integer('points')->default(0);
 
             $table->timestamps();
             $table->softDeletes();

@@ -14,12 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['namespace' => 'Quiz', 'prefix' => '/'], function () {
-    Route::get('',                         'QuizController@index')->name('quiz.index');
+    Route::get ('',                         'QuizController@index')->name('quiz.index');
 
     /*
      *  Currently active quiz
      */
-    Route::get('live-quiz/{id}',           'QuizController@live')->name('quiz.live');
+    Route::get ('live-quiz/{id}',           'QuizController@live')->name('quiz.live');
+    Route::post('answer-question',          'QuizController@answerQuestion')->name('quiz.live.answer-question');
 });
 
 Route::group(['namespace' => 'System', 'prefix' => '/system'], function () {

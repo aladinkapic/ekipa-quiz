@@ -33,6 +33,7 @@ body {
         }
     }
 
+    .controls{display: none; }
     .row{
         position: relative; left:30px; top:30px; width: calc(100% - 60px); min-height: 40px; margin-bottom:10px;
         input, select {
@@ -42,7 +43,18 @@ body {
         select{
             width: calc(100% + 4px);
         }
+        .submit-it{
+            padding:0px; width: calc(100% + 4px); font-weight: bold;
+        }
+        .start-quiz{ background: #65caf8; color:#fff;}
     }
+    .row-flex{
+        display: inline-flex; justify-content: space-between;
+        input{width: 20%;}
+    }
+    .row-flex-half{ input{width:46.5%;} }
+
+    .well-done-w, .go-home-w{display: none;}
 }
 
 .desno {
@@ -56,6 +68,10 @@ body {
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: contain;
+    .desno-full{
+        position: relative; width: 100%; height: 100%;
+    }
+    .all-questions{width: 100%; position: relative; }
 }
 
 .logo {
@@ -217,7 +233,7 @@ p {
 
 .pulse {
     position: absolute;
-    display: block;
+    display: none;
     width: 32px;
     height: 32px;
     border-radius: 50%;

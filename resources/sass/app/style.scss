@@ -275,43 +275,45 @@ p {
 }
 
 .haj-skor {
-    .avatari {
-        list-style-type: none;
-        margin: 0;
-        padding: 2rem 0 0 0;
-
-        li {
-            border-top: 1px solid rgba(255, 255, 255, 0.5);
-            font-family: 'Bungee', cursive;
-            list-style-type: none;
-            text-align: center;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            .rank {
-                font-size: 2rem;
-            }
-
-            .badge {
-                flex: 0 0 auto;
-                margin-right: 1rem;
-            }
-
-            .ime {
-                flex-grow: 1;
-                text-align: left;
-                font-size: 1.5rem;
-            }
-
-            .bodovi {
-                flex-grow: 0;
-                font-size: 2rem;
-            }
-        }
-    }
+    width: 66%;  position:absolute; background: #65CAF8; height: 100%; left:0px; top:0px; display:none;
 }
-
+.haj-skor .hs-logo {
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    margin-top:50px;
+}
+.haj-skor .avatari {
+    list-style-type: none;
+    margin: 0px 50px;
+    padding: 2rem 0 0 0;
+}
+.haj-skor .avatari li {
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    font-family: "Bungee", cursive;
+    list-style-type: none;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.haj-skor .avatari li .rank {
+    font-size: 2rem;
+}
+.haj-skor .avatari li .badge {
+    flex: 0 0 auto;
+    margin-right: 1rem;
+}
+.haj-skor .avatari li .ime {
+    flex-grow: 1;
+    text-align: left;
+    font-size: 1.5rem;
+}
+.haj-skor .avatari li .bodovi {
+    flex-grow: 0;
+    font-size: 2rem;
+}
 .ratio169 {
     background-color: rgba(0, 0, 0, 0.13);
     aspect-ratio: 16 / 9;

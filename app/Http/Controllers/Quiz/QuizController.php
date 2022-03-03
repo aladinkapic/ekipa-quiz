@@ -21,16 +21,17 @@ class QuizController extends Controller{
     }
     public function live($id){
         $set = Set::where('quiz_id', $id)->where('finished', 0)->first();
-        $question = Question::where('set_id', $set->id)->whereNull('answer')->first();
+        $question = Question::where('set_id', $set->id ?? 0)->whereNull('answer')->first();
 
         $finished = Set::where('quiz_id', $id)->where('finished', 1)->get();
 
         return view($this->_path.'live', [
-            'player' => Player::where('id', $set->player_id)->first(),
+            'player' => Player::where('id', $set->player_id ?? 0)->first(),
             'question' => $question,
             'letters' => $this->_letters,
             'set' => $set,
-            'finished' => $finished
+            'finished' => $finished,
+            'quiz' => Quiz::where('id', $id)->first()
         ]);
     }
     public function answerQuestion(Request $request){
@@ -49,20 +50,8 @@ class QuizController extends Controller{
 
             $answer = Answer::where('id', $request->answer)->first();
 
-            if(!$newQuestion) Set::where('id', $request->set)->update(['finished' => 1]);
-
-            $questions =  Question::where('set_id', $request->set)->where('answer', '!=', NULL)->get();
-            foreach ($questions as $q){
-                $correct = false;
-                foreach ($q->answerRel as $answ){
-                    if($answ->correct == 1 and $answ->id == $q->answer) $correct = true;
-                }
-
-                if($q->answer != null){
-                    if($q->answer != 0) $counter++;
-                    $totalPoints += $counter;
-                }else break;
-            }
+            if(!$newQuestion or (isset($answer) and $answer->correct == 0)) Set::where('id', $request->set)->update(['finished' => 1]);
+            $totalPoints = Set::where('id', $request->set)->first()->getTotalPoints();
 
             Set::where('id', $request->set)->update(['points' => $totalPoints]);
 
@@ -74,8 +63,6 @@ class QuizController extends Controller{
                 'left' => Question::where('set_id', $request->set)->whereNull('answer')->count(),
                 'points' => $totalPoints
             ]);
-            dd($question, $answer);
-            dd($request->all());
         }catch (\Exception $e){
             dd($e);
             return json_encode([
@@ -83,5 +70,25 @@ class QuizController extends Controller{
                 'message' => 'Došlo je do greške, pokušajte ponovo!'
             ]);
         }
+    }
+
+    public function highScore(Request $request){
+        try{
+            $data = [];
+            $sets = Set::where('quiz_id', $request->id)->whereNotNull('player_id')->get();
+
+            foreach ($sets as $set){
+                array_push($data, [
+                    'avatar' => $set->playerRel->avatarRel->image ?? '',
+                    'name' => $set->playerRel->name ?? '',
+                    'points' => $set->getTotalPoints()
+                ]);
+            }
+
+            return json_encode([
+                'code' => '0000',
+                'data' => $data
+            ]);
+        }catch (\Exception $e){ return json_encode([ 'code' => '0000' ]); }
     }
 }

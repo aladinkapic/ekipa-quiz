@@ -59,6 +59,11 @@
                                 @else
                                     <a href="{{ route('system.quiz.sets.players.edit', ['id' => $set->playerRel->id ?? 0]) }}">
                                         {{ $set->playerRel->name ?? '' }}
+
+
+                                        @if($set->finished == 1)
+                                            <span class="text-warning"> <small> <b> ({{ __('Set pitanja je iskorišten !') }}) </b> </small> </span>
+                                        @endif
                                     </a>
                                 @endif
                             </h5>
@@ -69,6 +74,11 @@
                             @if($set->player_id == null)
                                 <a href=" {{ route('system.quiz.sets.players.create', ['set_id' => $set->id ]) }} " class="btn btn-success btn-sm">
                                     <small>{{ __('Dodaj igrača') }} <i class="fas fa-user-plus"></i></small>
+                                </a>
+                            @endif
+                            @if($set->finished == 0)
+                                <a href=" {{ route('system.quiz.sets.finish-set', ['id' => $set->id ]) }} " class="btn btn-danger btn-sm" title="{{ __('Završi kviz !') }}">
+                                    <small> <i class="fas fa-hourglass-end"></i> </small>
                                 </a>
                             @endif
                         </div>

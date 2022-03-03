@@ -21,6 +21,7 @@ Route::group(['namespace' => 'Quiz', 'prefix' => '/'], function () {
      */
     Route::get ('live-quiz/{id}',           'QuizController@live')->name('quiz.live');
     Route::post('answer-question',          'QuizController@answerQuestion')->name('quiz.live.answer-question');
+    Route::post('high-score',               'QuizController@highScore')->name('quiz.live.high-score');
 });
 
 Route::group(['namespace' => 'System', 'prefix' => '/system'], function () {
@@ -38,6 +39,9 @@ Route::group(['namespace' => 'System', 'prefix' => '/system'], function () {
             Route::get ('/new-question{set_id}',                    'SetsController@newQuestion')->name('system.quiz.sets.new-question');
             Route::post('/save-question',                           'SetsController@saveQuestion')->name('system.quiz.sets.save-question');
             Route::get ('/delete-question{id}',                     'SetsController@deleteQuestion')->name('system.quiz.sets.delete-question');
+            /** Mark as finished **/
+            Route::get ('/finish-set{id}',                          'SetsController@finishSet')->name('system.quiz.sets.finish-set');
+
 
             Route::group(['prefix' => '/players'], function () {
                 Route::get ('/create{set_id}',                      'PlayersController@create')->name('system.quiz.sets.players.create');

@@ -319,9 +319,27 @@ p {
   }
 }
 
+.haj-skor {
+  width: 66%;
+  position: absolute;
+  background: #65CAF8;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  display: none;
+}
+
+.haj-skor .hs-logo {
+  width: 50%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  margin-top: 50px;
+}
+
 .haj-skor .avatari {
   list-style-type: none;
-  margin: 0;
+  margin: 0px 50px;
   padding: 2rem 0 0 0;
 }
 

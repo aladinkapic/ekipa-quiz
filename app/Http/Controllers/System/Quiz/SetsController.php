@@ -55,4 +55,10 @@ class SetsController extends Controller{
             return redirect()->route('system.quiz.sets.preview', ['id' => $set]);
         }catch (\Exception $e){}
     }
+    public function finishSet($id){
+        try{
+            $set = Set::where('id', $id)->update(['finished' => 1]);
+            return back();
+        }catch (\Exception $e){}
+    }
 }

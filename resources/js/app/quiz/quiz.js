@@ -162,4 +162,56 @@ $(document).ready(function () {
         $(".all-questions").fadeOut(0);
         $(".logo").fadeIn().attr('src','/images/dobio-si-po-usima.svg');
     });
+
+    /**
+     *  High score
+     */
+
+    let highScore = 0;
+
+    $(".high-score").click(function () {
+        if(highScore === 0){
+            highScore ++;
+            $.ajax({
+                url: '/high-score',
+                method: 'POST',
+                dataType: "json",
+                data: {
+                    id : $("#quiz_id").val()
+                },
+                success: function success(response) {
+                    let code = response['code'];
+                    if(code === '0000'){
+                        $(".high-score-avatars").empty();
+
+                        for(let i=0; i<response['data'].length; i++){
+                            $(".high-score-avatars").append(function(){
+                                return $("<li>").append(function(){
+                                    return $("<div>").attr('class', 'rank')
+                                        .text( i + 1)
+                                }).append(function () {
+                                    return $("<img>").attr('class', 'badge')
+                                        .attr('src', '/images/avatari/' + response['data'][i]['avatar'])
+                                }).append(function () {
+                                    return $("<div>").attr('class', 'ime')
+                                        .text(response['data'][i]['name']);
+                                }).append(function () {
+                                    return $("<div>").attr('class', 'bodovi')
+                                        .text(response['data'][i]['points']);
+                                });
+                            });
+                            console.log(response['data'][i]);
+                        }
+                    }else{
+                        notify.Me([response['message'], "warn"]);
+                    }
+
+                    $(".haj-skor").css('height', window.innerHeight).fadeIn();
+                }
+            });
+        }else{
+            highScore = 0;
+            $(".haj-skor").fadeOut();
+        }
+    });
 });

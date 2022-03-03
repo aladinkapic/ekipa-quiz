@@ -91,4 +91,9 @@ class QuizController extends Controller{
             ]);
         }catch (\Exception $e){ return json_encode([ 'code' => '0000' ]); }
     }
+    public function finishQuiz(Request $request){
+        try{
+            Set::where('id', $request->id)->update(['finished' => 1]);
+        }catch (\Exception $e){}
+    }
 }

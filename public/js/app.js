@@ -37497,6 +37497,8 @@ $(document).ready(function () {
       disabled = false;
       changeQuestion(questionData);
     }
+
+    $('.radio').prop('checked', false);
   });
   /*
    *  Custom messages
@@ -37505,10 +37507,14 @@ $(document).ready(function () {
   $(".well-done").click(function () {
     $(".all-questions").fadeOut(0);
     $(".logo").fadeIn().attr('src', '/images/brao-brao.svg');
+    var audio = new Audio("/sounds/brao.mp3");
+    audio.play();
   });
   $(".go-home").click(function () {
     $(".all-questions").fadeOut(0);
     $(".logo").fadeIn().attr('src', '/images/dobio-si-po-usima.svg');
+    var audio = new Audio("/sounds/ofiras.mp3");
+    audio.play();
   });
   /**
    *  High score
@@ -37561,6 +37567,42 @@ $(document).ready(function () {
       $(".haj-skor").fadeOut();
     }
   });
+  /**
+   *  Time intervals for counting seconds
+   */
+
+  var started = 0;
+  $(".start-counting").click(function () {
+    if (!started) started++;else started = 0;
+  });
+  var counter = 1;
+  var intervalId = window.setInterval(function () {
+    if (started) {
+      if (counter === 6) {
+        $.ajax({
+          url: '/finish-quiz',
+          method: 'POST',
+          dataType: "json",
+          data: {
+            id: $("#set_id").val()
+          },
+          success: function success(response) {
+            finnishQuiz();
+          }
+        });
+        finnishQuiz();
+        return;
+      }
+
+      $('.radio').prop('checked', false);
+      $(".radio-" + counter).prop('checked', true);
+      var audio = new Audio("/sounds/beep-08b.wav");
+      audio.play();
+      counter++;
+    } else {
+      counter = 1;
+    }
+  }, 1000);
 });
 
 /***/ }),

@@ -41,19 +41,22 @@
                 </div>
                 <div class="progress-wrapper">
 
-                    <input type="radio" class="radio" name="progress" value="jedan" id="jedan">
+                    <input type="radio" class="radio radio-0" name="progress" value="nula" id="nula" checked>
+                    <label for="nula" class="label">0</label>
+
+                    <input type="radio" class="radio radio-1" name="progress" value="jedan" id="jedan">
                     <label for="jedan" class="label">1</label>
 
-                    <input type="radio" class="radio" name="progress" value="dva" id="dva" >
+                    <input type="radio" class="radio radio-2" name="progress" value="dva" id="dva" >
                     <label for="dva" class="label">2</label>
 
-                    <input type="radio" class="radio" name="progress" value="tri" id="tri" >
+                    <input type="radio" class="radio radio-3" name="progress" value="tri" id="tri">
                     <label for="tri" class="label">3</label>
 
-                    <input type="radio" class="radio" name="progress" value="cetiri" id="cetiri" >
+                    <input type="radio" class="radio radio-4" name="progress" value="cetiri" id="cetiri" >
                     <label for="cetiri" class="label">4</label>
 
-                    <input type="radio" class="radio" name="progress" value="pet" id="pet" checked>
+                    <input type="radio" class="radio radio-5" name="progress" value="pet" id="pet">
                     <label for="pet" class="label">5</label>
 
                     <div class="progress">

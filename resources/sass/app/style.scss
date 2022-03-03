@@ -189,28 +189,29 @@ p {
 }
 
 #jedan:checked ~ .progress > .progress-bar {
-    width: 5%;
-    background-color: var(--red);
+    width: 20%;
+    background-color: var(--green);
+
 }
 
 #dva:checked ~ .progress > .progress-bar {
-    width: 25%;
-    background-color: var(--orange);
+    width: 40%;
+    background-color: var(--yellow);
 }
 
 #tri:checked ~ .progress > .progress-bar {
-    width: 50%;
+    width: 60%;
     background-color: var(--orange-yellow);
 }
 
 #cetiri:checked ~ .progress > .progress-bar {
-    width: 75%;
-    background-color: var(--yellow);
+    width: 80%;
+    background-color: var(--orange);
 }
 
 #pet:checked ~ .progress > .progress-bar {
     width: 100%;
-    background-color: var(--green);
+    background-color: var(--red);
 }
 
 .radio {

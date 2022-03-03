@@ -22,6 +22,8 @@ Route::group(['namespace' => 'Quiz', 'prefix' => '/'], function () {
     Route::get ('live-quiz/{id}',           'QuizController@live')->name('quiz.live');
     Route::post('answer-question',          'QuizController@answerQuestion')->name('quiz.live.answer-question');
     Route::post('high-score',               'QuizController@highScore')->name('quiz.live.high-score');
+
+    Route::post('finish-quiz',              'QuizController@finishQuiz')->name('quiz.live.finish-quiz');
 });
 
 Route::group(['namespace' => 'System', 'prefix' => '/system'], function () {

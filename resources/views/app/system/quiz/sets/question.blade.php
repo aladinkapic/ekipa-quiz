@@ -25,11 +25,18 @@
                     {!! Form::hidden('set_id', $set->id, ['class' => 'form-control', 'id' => 'set_id']) !!}
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="question"> <b>{{ __('Pitanje') }}</b> </label>
                                 {!! Form::text('question', $question->question ?? '', ['class' => 'form-control required', 'id' => 'question', 'aria-describedby' => 'questionHelp']) !!}
                                 <small id="questionHelp" class="form-text text-muted"> {{ __('Unesite željeno pitanje') }} </small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="category"> <b>{{ __('Kategorija pitanja') }}</b> </label>
+                                {!! Form::select('category', $categories, $question->category ?? '', ['class' => 'form-control required', 'id' => 'category', 'aria-describedby' => 'categoryHelp']) !!}
+                                <small id="categoryHelp" class="form-text text-muted"> {{ __('Odaberite kategoriju pitanja') }} </small>
                             </div>
                         </div>
                     </div>
@@ -40,13 +47,13 @@
                                 <h6><b>{{ __('Unesite odgovore za pitanja') }}</b></h6>
                             </div>
                             @if(!isset($preview))
-                                <div class="col-md-2 d-flex justify-content-end">
+                                <div class="col-md-2 d-flex justify-content-end mb-2">
                                     <div class="btn btn-xs btn-xs-v2 bg-success text-white add-question"> <i class="fas fa-plus"></i> {{ __('Novi odgovor') }} </div>
                                 </div>
                                 <hr class="mt-2">
                             @endif
                         </div>
-                        <div class="questions p-3 pt-0 mt-0">
+                        <div class="questions pt-0 mt-0">
                             <div class="row" id="question-zero">
                                 <div class="col-md-9">
                                     <div class="form-group">

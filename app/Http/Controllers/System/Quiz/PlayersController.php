@@ -12,7 +12,8 @@ class PlayersController extends Controller{
     protected $_path = 'app.system.quiz.players.';
     public function create ($set_id){
         return view($this->_path.'create', [
-            'set' => Set::find($set_id)
+            'set' => Set::find($set_id),
+            'create' => true
         ]);
     }
 

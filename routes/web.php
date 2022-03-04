@@ -34,22 +34,24 @@ Route::group(['namespace' => 'System', 'prefix' => '/system'], function () {
         Route::get ('/create',                   'QuizController@create')->name('system.quiz.create');
         Route::post('/save',                     'QuizController@save')->name('system.quiz.save');
         Route::get ('/preview/{id}',             'QuizController@preview')->name('system.quiz.preview');
+        Route::get ('/restart-sets',             'QuizController@restartSets')->name('system.quiz.restart-sets');
 
         Route::group(['prefix' => '/sets'], function () {
             Route::get ('/create{quiz_id}',                         'SetsController@create')->name('system.quiz.sets.create');
             Route::get ('/preview{id}',                             'SetsController@preview')->name('system.quiz.sets.preview');
             Route::get ('/new-question{set_id}',                    'SetsController@newQuestion')->name('system.quiz.sets.new-question');
             Route::post('/save-question',                           'SetsController@saveQuestion')->name('system.quiz.sets.save-question');
+            Route::get ('/edit-question{id}',                       'SetsController@editQuestion')->name('system.quiz.sets.edit-question');
             Route::get ('/delete-question{id}',                     'SetsController@deleteQuestion')->name('system.quiz.sets.delete-question');
             /** Mark as finished **/
-            Route::get ('/finish-set{id}',                          'SetsController@finishSet')->name('system.quiz.sets.finish-set');
+            Route::get ('/finish-set/{id}',                          'SetsController@finishSet')->name('system.quiz.sets.finish-set');
 
 
             Route::group(['prefix' => '/players'], function () {
-                Route::get ('/create{set_id}',                      'PlayersController@create')->name('system.quiz.sets.players.create');
+                Route::get ('/create/{set_id}',                      'PlayersController@create')->name('system.quiz.sets.players.create');
                 Route::post('/save',                                'PlayersController@save')->name('system.quiz.sets.players.save');
 
-                Route::get ('/edit{id}',                            'PlayersController@edit')->name('system.quiz.sets.players.edit');
+                Route::get ('/edit/{id}',                            'PlayersController@edit')->name('system.quiz.sets.players.edit');
                 Route::put ('/update',                              'PlayersController@update')->name('system.quiz.sets.players.update');
             });
         });

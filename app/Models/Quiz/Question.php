@@ -13,4 +13,7 @@ class Question extends Model{
     public function answerRel(){
         return $this->hasMany(Answer::class, 'question_id', 'id');
     }
+    public function categoryRel(){
+        return $this->hasOne(Category::class, 'id', 'category');
+    }
 }

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\System\Quiz;
 
 use App\Http\Controllers\Controller;
+use App\Models\Quiz\Question;
 use App\Models\Quiz\Quiz;
+use App\Models\Quiz\Set;
 use Illuminate\Http\Request;
 
 class QuizController extends Controller{
@@ -33,5 +35,17 @@ class QuizController extends Controller{
             'quiz' => Quiz::find($id)
         ]);
     }
+    public function restartSets (){
+        try{
+            Set::where('id', '>', 0)->update([
+                'finished' => 0,
+                'points' => 0
+            ]);
 
+            Question::where('id', '>', 0)->update([
+                'answer' => NULL
+            ]);
+        }catch (\Exception $e){ abort('500', 'Error has occured'); }
+        return back();
+    }
 }

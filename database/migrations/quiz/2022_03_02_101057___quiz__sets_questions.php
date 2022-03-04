@@ -23,6 +23,7 @@ class QuizSetsQuestions extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('question', 300);
+            $table->integer('category')->nullable();
             $table->string('answer')->nullable();
             $table->integer('correct')->default(0);
 

@@ -22,7 +22,12 @@
         <div class="card">
             @foreach($set->questionRel as $question)
                 <div class="card-body">
-                    <h5 class="card-title"> {{ $question->question }} </h5>
+                    <h5 class="card-title">
+                        <a href="" title="">
+                            {{ $question->question ?? '' }}
+                        </a>
+                        ({{ $question->categoryRel->category ?? '' }})
+                    </h5>
                     <p class="card-text">
                     <ul>
                         @foreach($question->answerRel as $answer)

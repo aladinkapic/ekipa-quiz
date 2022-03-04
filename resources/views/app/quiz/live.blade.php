@@ -8,7 +8,7 @@
         @if(!isset($player) or !isset($set))
             <img class="logo" src="{{ asset('images/joker.png') }}">
         @else
-            <img class="logo" src="{{ asset('images/helem-nejse-znzkvi-1.svg') }}" alt="" style="display: none;">
+            <img class="logo" src="{{ asset('images/helem-nejse-znzkvi-1.svg') }}" alt="">
 
             <div class="all-questions">
 

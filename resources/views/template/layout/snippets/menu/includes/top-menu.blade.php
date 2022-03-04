@@ -40,7 +40,7 @@
 {{--                @include('system.template.menu.menu-includes.search')--}}
 {{--            </div>--}}
             <div class="single-li m-show-notifications" title="Pregled obavijesti">
-                <a href="#" title="{{ __('Odjavite se') }}">
+                <a href="{{ route('system.quiz.restart-sets') }}" title="{{ __('Restartujte sve setove') }}">
                     <i class="fas fa-power-off"></i>
                 </a>
             </div>

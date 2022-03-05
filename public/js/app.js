@@ -37438,6 +37438,7 @@ $(document).ready(function () {
 
             if (response['correct'] === 0) {
               $(answerObject).parent().addClass('netacan');
+              $('.answer-' + response['correctAnswer']).parent().addClass('tacan');
               finnishQuiz();
               return;
             } else {

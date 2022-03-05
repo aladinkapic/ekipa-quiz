@@ -55,6 +55,11 @@ class QuizController extends Controller{
             if(!$newQuestion or (isset($answer) and $answer->correct == 0)) Set::where('id', $request->set)->update(['finished' => 1]);
             $totalPoints = Set::where('id', $request->set)->first()->getTotalPoints();
 
+            $answers = Answer::where('question_id', $request->question)->orderBy('id')->get(); $correctAnswer = 'A';
+            for($i=0; $i<$answers->count(); $i++){
+                if($answers[$i]->correct == 1) $correctAnswer = $this->_letters[$i];
+            }
+
             Set::where('id', $request->set)->update(['points' => $totalPoints]);
 
             return json_encode([
@@ -63,7 +68,8 @@ class QuizController extends Controller{
                 'joker' => ($request->answer == 0) ? true : false,
                 'data' => $data,
                 'left' => Question::where('set_id', $request->set)->whereNull('answer')->count(),
-                'points' => $totalPoints
+                'points' => $totalPoints,
+                'correctAnswer' => $correctAnswer
             ]);
         }catch (\Exception $e){
             return json_encode([

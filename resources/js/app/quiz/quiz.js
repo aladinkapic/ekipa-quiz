@@ -35,10 +35,11 @@ $(document).ready(function () {
         else $(".well-done-w").fadeIn();
 
         $(".start-counting-w").fadeOut(0);
+        $(".reset-counter-w").fadeOut(0);
     };
 
     let changeQuestion = function(data){
-        $(".question").attr('attr-id', data['question']['id']).find("p").text(data['question']['question']);
+        $(".question").attr('attr-id', data['question']['id']).find("p").text(data['qNumber'] + '. ' + data['question']['question']);
         $(".odgovori").empty();
 
         for(let i=0; i<data['answers'].length; i++){
@@ -262,4 +263,26 @@ $(document).ready(function () {
             counter = 1;
         }
     },1000);
+    $(".reset-counter").click(function () {
+        $('.radio').prop('checked', false);
+        $(".radio-0").prop('checked', true);
+        counter = 1;
+        started = 0;
+    });
+    /*
+     *  Reset question in case of error
+     */
+    $(".reset-question").click(function () {
+        $.ajax({
+            url: '/reset-question',
+            method: 'POST',
+            dataType: "json",
+            data: {
+                id : $("#set_id").val()
+            },
+            success: function success(response) {
+                location.reload();
+            }
+        });
+    });
 });

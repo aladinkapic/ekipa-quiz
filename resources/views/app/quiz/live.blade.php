@@ -19,7 +19,7 @@
                     <ul class="avatari">
                         <li class="h-current-player">
                             <img class="badge" src="{{ asset('images/avatari/' . ($player->avatarRel->image ?? '')) }}" alt="" >
-                            <div class="bodovi total-points">0</div>
+                            <div class="bodovi total-points">{{ $set->getTotalPoints() }}</div>
                         </li>
                         @foreach($finished as $data)
                             <li class="h-current-player">
@@ -30,14 +30,14 @@
                     </ul>
                     <ul class="joker">
                         <li>
-                            <span class="pulse"></span>
+                            <span class="pulse" @if($set->usedJoker() === 1) style="display: block;" @endif></span>
                             <img class="badge" src="{{ asset('images/joker.png') }}" alt="" >
                             <div>Joker</div>
                         </li>
                     </ul>
                 </div>
                 <div class="pitanje question" attr-id="{{ $question->id ?? '' }}">
-                    <p> {{ $question->question ?? 'Problem sa učitavanjem pitanja .. ' }} </p>
+                    <p> {{ $set->numberOfQuestion() }}. {{ $question->question ?? 'Problem sa učitavanjem pitanja .. ' }} </p>
                 </div>
                 <div class="progress-wrapper">
 
@@ -89,7 +89,7 @@
             </select>
         </div>
         <div class="row">
-            <input type="submit" class="submit-it start-quiz" value="{{ __('ZAPOČNITE KVIZ') }}">
+            <input type="submit" class="submit-it start-quiz" value="{{ __('Započnite kviz') }}">
         </div>
 
         <div class="controls">
@@ -104,8 +104,15 @@
             </div>
 
             <div class="row row-flex row-flex-half joker-next">
-                <input type="submit" class="use-joker" val-attr="A" value="{{ __('JOKER') }}">
-                <input type="submit" class="next-question" value="{{ __('SLJEDEĆE PITANJE') }}">
+                @if($set->usedJoker())
+                    <input type="submit" class="next-question next-question-full" value="{{ __('Sljedeće pitanje') }}">
+                @else
+                    <input type="submit" class="use-joker" val-attr="A" value="{{ __('Joker') }}">
+                    <input type="submit" class="next-question" value="{{ __('Sljedeće pitanje') }}">
+                @endif
+            </div>
+            <div class="row reset-counter-w">
+                <input type="submit" class="reset-counter" val-attr="A" value="{{ __('Ponovi odbrojavanje') }}">
             </div>
 
             <div class="row well-done-w">
@@ -119,6 +126,9 @@
         <div class="row row-flex row-flex-half">
             <input type="submit" class="high-score" value="{{ __('HIGH SCORE') }}">
             <input type="submit" class="start-over" value="{{ __('NOVI KVIZ') }}">
+        </div>
+        <div class="row">
+            <input type="submit" class="reset-question" value="{{ __('Ponovi pitanje') }}">
         </div>
     </div>
 @endsection

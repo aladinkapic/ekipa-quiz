@@ -41,11 +41,13 @@ class QuizController extends Controller{
             $question = Question::where('id', $request->question)->first();
             $question->update(['answer' => $request->answer]);
 
+            $thisSet = Set::where('id', $request->set)->first();
             $newQuestion = Question::where('set_id', $request->set)->whereNull('answer')->first();
             $data = [
                 'question' => $newQuestion,
                 'answers'  => isset($newQuestion) ? Answer::where('question_id', $newQuestion->id)->get() : '',
-                'done'     => isset($newQuestion) ? false : true
+                'done'     => isset($newQuestion) ? false : true,
+                'qNumber'  => $thisSet->numberOfQuestion()
             ];
 
             $answer = Answer::where('id', $request->answer)->first();
@@ -64,7 +66,6 @@ class QuizController extends Controller{
                 'points' => $totalPoints
             ]);
         }catch (\Exception $e){
-            dd($e);
             return json_encode([
                 'code' => '4004',
                 'message' => 'Došlo je do greške, pokušajte ponovo!'
@@ -95,5 +96,19 @@ class QuizController extends Controller{
         try{
             Set::where('id', $request->id)->update(['finished' => 1]);
         }catch (\Exception $e){}
+    }
+    public function resetQuestion (Request $request){
+        try{
+            $questions = Question::where('set_id', $request->id)->orderBy('id')->get();
+            $last = 0;
+            foreach ($questions as $question){
+                if($question->answer != null) $last = $question->id;
+            }
+
+            $set = Set::where('id', $request->id)->first();
+            if($last) Question::where('id', $last)->update(['answer' => null]);
+            $set->update(['finished' => 0]);
+            return json_encode([ 'code' => '0000' ]);
+        }catch(\Exception $e){ return json_encode([ 'code' => '5000' ]); }
     }
 }

@@ -58,15 +58,21 @@ body {
   left: 0px;
   top: 0px;
   width: calc(100% - 15px);
-  height: 32px;
+  height: 60px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   background: #fff;
   border-radius: 3px;
   padding-left: 15px;
+  font-size: 26px;
 }
 
 .lijevo .row select {
   width: calc(100% + 4px);
+}
+
+.lijevo .row .reset-counter,
+.lijevo .row .reset-question {
+  width: calc(100% + 2px);
 }
 
 .lijevo .row .submit-it {
@@ -78,6 +84,10 @@ body {
 .lijevo .row .start-quiz {
   background: #65caf8;
   color: #fff;
+}
+
+.lijevo .row .next-question-full {
+  width: 100% !important;
 }
 
 .lijevo .row-flex {

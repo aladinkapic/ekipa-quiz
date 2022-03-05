@@ -24,6 +24,7 @@ Route::group(['namespace' => 'Quiz', 'prefix' => '/'], function () {
     Route::post('high-score',               'QuizController@highScore')->name('quiz.live.high-score');
 
     Route::post('finish-quiz',              'QuizController@finishQuiz')->name('quiz.live.finish-quiz');
+    Route::post('reset-question',           'QuizController@resetQuestion')->name('quiz.live.reset-question');
 });
 
 Route::group(['namespace' => 'System', 'prefix' => '/system'], function () {

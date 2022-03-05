@@ -12,7 +12,7 @@ class Set extends Model{
     protected $guarded = ['id'];
 
     public function questionRel(){
-        return $this->hasMany(Question::class, 'set_id', 'id');
+        return $this->hasMany(Question::class, 'set_id', 'id')->orderBy('id');
     }
     public function playerRel(){
         return $this->hasOne(Player::class, 'id', 'player_id');
@@ -37,5 +37,20 @@ class Set extends Model{
             }
             return $totalPoints;
         }catch (\Exception $e){ return 0; }
+    }
+    public function numberOfQuestion(){
+        $counter = 1;
+        try{
+            foreach ($this->questionRel as $question){
+                if($question->answer != null) $counter++;
+            }
+        }catch (\Exception $e){}
+        return $counter;
+    }
+    public function usedJoker(){
+        foreach ($this->questionRel as $question){
+            if($question->answer === 0) return 1;
+        }
+        return 0;
     }
 }

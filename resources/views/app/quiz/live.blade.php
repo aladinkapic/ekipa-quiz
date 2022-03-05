@@ -6,7 +6,7 @@
         {!! Form::hidden('quiz_id', $quiz->id, ['class' => 'form-control', 'id' => 'quiz_id']) !!}
 
         @if(!isset($player) or !isset($set))
-            <img class="logo" src="{{ asset('images/joker.png') }}">
+            <img class="logo" src="{{ asset('images/helem-nejse-znzkvi-1.svg') }}" alt="">
         @else
             <img class="logo" src="{{ asset('images/helem-nejse-znzkvi-1.svg') }}" alt="">
 
@@ -30,7 +30,7 @@
                     </ul>
                     <ul class="joker">
                         <li>
-                            <span class="pulse" @if($set->usedJoker() === 1) style="display: block;" @endif></span>
+                            <span class="pulse" @if(isset($set) and $set->usedJoker() === 1) style="display: block;" @endif></span>
                             <img class="badge" src="{{ asset('images/joker.png') }}" alt="" >
                             <div>Joker</div>
                         </li>
@@ -104,7 +104,7 @@
             </div>
 
             <div class="row row-flex row-flex-half joker-next">
-                @if($set->usedJoker())
+                @if(isset($set) and $set->usedJoker())
                     <input type="submit" class="next-question next-question-full" value="{{ __('Sljedeće pitanje') }}">
                 @else
                     <input type="submit" class="use-joker" val-attr="A" value="{{ __('Joker') }}">

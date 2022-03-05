@@ -25,6 +25,8 @@ Route::group(['namespace' => 'Quiz', 'prefix' => '/'], function () {
 
     Route::post('finish-quiz',              'QuizController@finishQuiz')->name('quiz.live.finish-quiz');
     Route::post('reset-question',           'QuizController@resetQuestion')->name('quiz.live.reset-question');
+
+    Route::get ('import-questions',         'ImportController@import')->name('quiz.import-questions');
 });
 
 Route::group(['namespace' => 'System', 'prefix' => '/system'], function () {

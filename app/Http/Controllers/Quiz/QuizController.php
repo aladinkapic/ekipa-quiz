@@ -42,7 +42,7 @@ class QuizController extends Controller{
             $question->update(['answer' => $request->answer]);
 
             $thisSet = Set::where('id', $request->set)->first();
-            $newQuestion = Question::where('set_id', $request->set)->whereNull('answer')->first();
+            $newQuestion = Question::where('set_id', $request->set)->whereNull('answer')->with('categoryRel')->first();
             $data = [
                 'question' => $newQuestion,
                 'answers'  => isset($newQuestion) ? Answer::where('question_id', $newQuestion->id)->get() : '',

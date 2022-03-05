@@ -49,7 +49,7 @@ class Set extends Model{
     }
     public function usedJoker(){
         foreach ($this->questionRel as $question){
-            if($question->answer === 0) return 1;
+            if($question->answer == 0 and $question->answer != null) return 1;
         }
         return 0;
     }
